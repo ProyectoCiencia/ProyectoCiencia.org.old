@@ -1,0 +1,9 @@
+{% load i18n %}
+
+<div id="search">
+  <form method="get" action="{% url search %}" id="search">
+    <label for="search-query">{% trans "Search" %}</label>
+    <input type="text" name="q" value="{{ request.REQUEST.q }}" class="query" id="search-query"/>
+    <input type="submit" value="{% trans "Go" %}" class="button" />
+  </form>
+</div>

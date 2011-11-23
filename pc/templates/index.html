@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load i18n blog_tags %}
+
+{% block meta_title %}{% trans "Home" %}{% endblock %}
+
+{% block title %}
+{% trans "Home" %}
+{% endblock %}
+
+{% block main %}
+<div id="home-main">
+  <div class="grid_6 home-block home-block-6">
+    <h3>{% trans "Imagen del día de la NASA" %}</h3>
+    <div id="image-of-the-day">
+      <img width="100%" src="http://www.nasa.gov/images/content/605441main_image_2112_800-600.jpg" />
+    </div>
+  </div>
+  <div class="grid_6 home-block home-block-6">
+    <h3>{% trans "Últimas Publicaciones" %}</h3>
+    <div id="recent-posts-block">
+      {% blog_recent_posts 6 as recent_posts %}
+      <ul>
+        {% for post in recent_posts %}
+        <li><a href="{{ post.get_absolute_url }}">{{ post }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="grid_8 home-block home-block-4">
+    <h3>{% trans "Últimas Preguntas" %}</h3>
+  </div>
+  <div class="grid_4 home-block home-block-4">
+    <h3>{% trans "Las más puntuadas" %}</h3>
+  </div>
+</div>
+
+{% endblock %}
